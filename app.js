@@ -18,7 +18,7 @@ app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Credentials", true); //可以带cookies
-  res.header("X-Powered-By", '3.2.1')
+  res.header("X-Powered-By", '3.2.1');
   if (req.method == 'OPTIONS') {
     res.send(200);
   } else {
@@ -26,7 +26,7 @@ app.all('*', (req, res, next) => {
   }
 });
 
-app.use(Statistic.apiRecord)
+app.use(Statistic.apiRecord);
 const MongoStore = connectMongo(session);
 app.use(cookieParser());
 app.use(session({
@@ -38,7 +38,7 @@ app.use(session({
   store: new MongoStore({
     url: config.url
   })
-}))
+}));
 
 // app.use(expressWinston.logger({
 //     transports: [
